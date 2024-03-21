@@ -13,13 +13,15 @@ Inspired by Page Rank, to summarise: “PageRank works by counting the number an
 Similarly, Noun Rank treats an “outbound link” as a “vote” of sorts. In terms of the Farcaster protocol, this “outbound link” is a “follow”:
 
 - Every Noun NFT owner has a score. To simplify things, let's say each Noun has a score of one (1).
-- When another follows a Noun, they inherit their score. In this way, the most followed Noun has the highest score and quality.
+- When a user is followed by this Noun, they inherit their score. In this way, the most followed user has the highest score and quality.
+- Users with no Noun NFTs can still accumulate scores.
 
-This system can work with any trait to increase an individual Noun's score. The sum would represent the overall “Nounishness” – e.g., ‘How long have they owned a Noun?’ ‘How active they are in the community?’ ‘How many Nouns do they own?’—with different assigned scores for each trait.
+This system can work with any trait to increase an individual Noun's score. The sum would represent the overall “Nounishness” – e.g., ‘How long have they owned a Noun?’ ‘How active they are in the community?’ ‘How many Nouns do they own?’— with different assigned scores for each trait.
 
-The sum (overall score) of a Noun will impact which posts are deemed essential. Different actions (comment, like, or repost) have a distinct ‘weight’—in the figure, L represents the weight for likes.
+The sum (overall score) of a Noun will impact which posts are deemed essential. 
+Different post actions (comment, like, or repost) have a distinct ‘weight’ — in the above figure, L represents the weight for likes.
 
-Instinctively, a Repost would have the highest weight (e.g., 3), a Comment could weigh 2.5, and a Like could weigh 2. 
+Instinctively, a Repost would have the highest weight (e.g., 3), a Comment could weigh 2.5, and a Like could weigh 2.
 
 ### Scenarios
 
@@ -29,22 +31,27 @@ To illustrate, let’s explore different scenarios for Post B:
 - Noun (score of 4) leaves a comment (weight of 2.5), and likes (weight of 2); post’s score = 20.
 
 Compare the above scenario with one from Post A:
-- Post A—The 2 Nouns (combined score of 2), comment (weight of 2.5), and like (weight of 2); the post’s score = 10.
-- Post B—Noun (score of 4) leaves a comment (weight of 2.5) and likes (weight of 2), which equals the post’s score of 20.
+- Post A — The 2 Nouns (combined score of 2), comment (weight of 2.5), and like (weight of 2); the post’s score = 10.
+- Post B — Noun (score of 4) leaves a comment (weight of 2.5) and likes (weight of 2), which equals the post’s score of 20.
 
-The sum (overall score) of a Noun will impact which posts are deemed essential. This satisfies our goal of “Nounishness.” We could include as many ‘traits’ as possible (given the time) to the algo. The score of a Noun/user’s posts could also act as a ‘trait’ (it matters if your posts are high quality or low quality).
+The sum (overall score) of a Noun will impact which posts are deemed essential. This satisfies our goal of “Nounishness.” We could include as many ‘traits’ as possible to the algo. 
+The score of a user’s posts will also act as a ‘trait’ (it matters if your posts are high quality or low quality). This is how a user's NounRank score will keep increasing overtime.
 
 ## Addendum
 
 ### Possible Traits and Scores (demonstrative purposes only, numbers and weights are subject to change in a live environment).
 
-- Owning a Noun (already covered): 1
+- Owning a Noun: 1
 - Owning 1+ Nouns*: Sqrt(Nouns Owned)
+- Number of props voted: 1.2
+- Number of props voted with reason: 1.5
 - In the community for less than 3 months: 1.5
 - In the community for 3 months+: 2
 - In the community for 12 months+: 3
 - OGs (first 6 months): 5
 - Total accumulated post-score: Post Score/10
+
+This all adds up to give your total NounRank score overtime.
 
 *Introduced a “Quadratic Cost” (the cost of owning more than one Noun increases quadratically, not linearly):
 - Owning 1 Noun adds 1 to your score (sqrt(1) = 1).
